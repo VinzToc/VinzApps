@@ -1,4 +1,4 @@
 [
-{"id":"budget","nom":"Budget familial","desc":"Créer et gérer son budget familial à partir d'export CSV de relevés bancaires","url":"https://vinztoc.github.io/Budget-_familial_moderne/","icon":"https://vinztoc.github.io/Budget-_familial_moderne/icons/icon-192-BudgetFamille.png","emoji":"💶","couleur":"#4a63b0,#3a9a9c"}
+{"id":"budget","nom":"Budget familial","desc":"Créer et gérer son budget familial à partir d'export CSV de relevés bancaires","url":"https://vinztoc.github.io/Budget-_familial_moderne/","icon":"https://vinztoc.github.io/Budget-_familial_moderne/icons/icon-192-BudgetFamille.png","emoji":"💶","couleur":"#4a63b0,#3a9a9c"},
 {"id":"exemple","nom":"Prochaine app","desc":"Bientôt disponible !","url":"","icon":"icons/icon-192.png","emoji":"➕","couleur":"#b030ff,#6a0fd0"}
 ]
