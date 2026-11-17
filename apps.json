@@ -1,1 +1,3 @@
-[]
+[
+ {"id":"budget","nom":"Budget familial","desc":"Suivre son budget à partir du relevé CSV de sa banque : charges fixes à pointer, disponible en temps réel, budget prévisionnel par catégorie, sauvegarde xlsx","url":"https://vinztoc.github.io/VinzApps/budget/","icon":"icons/icon-192-Budget.png","emoji":"💶","couleur":"#4a63b0,#3a9a9c"}
+]
