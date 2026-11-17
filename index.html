@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>VinZ Apps</title><meta name="description" content="Portail des applications personnelles de VinZ Neuron, hors enseignement.">
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#1a0f05">
+<link rel="icon" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png">
+<style>
+:root{--bg:#140c06;--tx:#fff6ec;--mut:rgba(255,246,236,.64);--glass:rgba(255,255,255,.07);--bd:rgba(255,255,255,.15);--c1:#ff8a1f;--c2:#ffcc33;--c3:#ffe08a;--g1:rgba(255,138,31,.24);--g2:rgba(255,204,51,.16);--ko:#ff8f8f}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}[hidden]{display:none!important}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--tx);min-height:100vh;background:var(--bg);padding-bottom:24px;line-height:1.45}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 8% 4%,var(--g1),transparent 55%),radial-gradient(ellipse at 94% 96%,var(--g2),transparent 55%)}
+header{display:flex;align-items:center;gap:14px;padding:20px 16px 12px;max-width:1000px;margin:auto}
+header img{width:84px;height:84px;flex:none;border-radius:22px;box-shadow:0 0 26px rgba(255,138,31,.5)}
+h1{margin:0;font-size:1.75rem;font-weight:900;letter-spacing:.07em;text-transform:uppercase;line-height:1.1;background:linear-gradient(90deg,var(--c1),var(--c3));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+header p{margin:4px 0 0;font-size:.72rem;font-weight:600;color:var(--mut);letter-spacing:.1em;text-transform:uppercase}
+header .sp{flex:1}
+main{max-width:1000px;margin:auto;padding:0 12px}
+.card{position:relative;background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--bd);border-radius:20px;padding:18px;margin-bottom:16px;box-shadow:0 10px 30px #0006,inset 0 1px 0 #ffffff18}
+h2{margin:0 0 12px;font-size:.82rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--c1)}
+.btn{border:0;border-radius:13px;padding:11px 18px;font:inherit;font-weight:800;font-size:.9rem;letter-spacing:.03em;color:#fff;cursor:pointer;background:linear-gradient(135deg,#ffa21f,#ff5e00);box-shadow:0 6px 18px #ff5e0050,inset 0 1px 0 #ffffff55;text-shadow:0 1px 2px #0003;transition:transform .12s,filter .15s;display:inline-block;text-decoration:none}
+.btn:hover{filter:brightness(1.1)}.btn:active{transform:scale(.97)}
+.btn.b{background:linear-gradient(135deg,#2f9bff,#0a4fd0);box-shadow:0 6px 18px #0a4fd055,inset 0 1px 0 #ffffff55}
+.btn.r{background:rgba(255,255,255,.1);border:1.5px solid var(--bd);box-shadow:none;text-shadow:none}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+input{padding:10px 12px;border-radius:12px;border:1.5px solid var(--bd);font:inherit;font-size:.95rem;background:rgba(0,0,0,.32);color:var(--tx);flex:1;min-width:180px}
+input::placeholder{color:rgba(255,246,236,.4)}input:focus,.btn:focus-visible,.tile:focus-visible{outline:2px solid var(--c1);outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;margin-top:14px}
+.tile{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:20px 12px 16px;border-radius:18px;color:var(--tx);text-decoration:none;background:linear-gradient(160deg,rgba(255,255,255,.13),rgba(255,255,255,.04));border:1px solid var(--bd);box-shadow:0 6px 18px #0005;transition:.18s}
+.tile::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--t1,var(--c1)),var(--t2,var(--c2)))}
+.tile:hover{transform:translateY(-4px);border-color:var(--t1,var(--c1));box-shadow:0 10px 26px #0007,0 0 18px var(--g1)}
+.tile:active{transform:scale(.96)}
+.tile .ic{font-size:3.4rem;line-height:1;filter:drop-shadow(0 3px 5px #0006)}.tile .ic img{display:block;width:76px;height:76px;object-fit:contain;border-radius:16px}
+.tile b{font-size:1rem;line-height:1.2;font-weight:800}.tile small{font-size:.8rem;line-height:1.35;color:var(--mut);font-weight:500}
+.tile.off{filter:grayscale(.6);opacity:.5;pointer-events:none}
+.fg{grid-column:1/-1;margin:8px 0 -4px;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:var(--mut)}
+.note{font-size:.8rem;color:var(--mut);line-height:1.5;margin:12px 0 0}.note b{color:var(--tx)}.note a{color:var(--c1);font-weight:700}
+.err{font-weight:700;color:var(--ko)}
+.eps{display:flex;gap:14px;align-items:center}.eps img{width:56px;height:56px;border-radius:14px;flex:none;box-shadow:0 4px 12px #0006}
+.eps div{flex:1}.eps p{margin:0;font-size:.85rem;color:var(--mut)}
+.foot{max-width:976px;margin:10px auto 0;padding:16px;text-align:center;background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--bd);border-radius:20px;font-size:.86rem;color:var(--mut)}
+.foot a{color:var(--c1);font-weight:700}.foot>div{margin:6px 0}
+.foot .ic{display:inline-flex;width:44px;height:44px;margin:4px;align-items:center;justify-content:center;border-radius:14px;color:#fff;background:linear-gradient(#ffa21f,#ff5e00);box-shadow:0 4px 12px #ff5e0055,inset 0 1px 0 #ffffff66}
+.foot .ic:nth-child(2){background:linear-gradient(#2f9bff,#0a4fd0)}.foot .ic:nth-child(3){background:linear-gradient(#c040ff,#6a0fd0)}.foot .ic:nth-child(4){background:linear-gradient(#ff4d4d,#c00000)}
+.foot a.ic{color:#fff}
+.foot svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.foot .own{display:block;margin:0 auto 6px;width:92px;height:92px;border-radius:22px;box-shadow:0 6px 18px #0006}
+.foot p{margin:6px 0 0}.ver{text-align:center;font-weight:700;font-size:.76rem;color:var(--mut);margin:12px 0 0;letter-spacing:.04em}
+@media(max-width:520px){h1{font-size:1.4rem}header img{width:66px;height:66px}.eps{flex-wrap:wrap}}
+</style></head><body>
+<header><img src="icons/icon-192.png" alt="Logo VinZ Apps" width="84" height="84"><div class="sp"><h1>VinZ Apps</h1><p>Mes applications personnelles</p></div>
+ <button class="btn r" id="inst" hidden>⬇ Installer</button></header>
+<main>
+ <div class="card"><h2>🧩 Applications</h2>
+  <div class="row"><input id="q" type="search" placeholder="🔍 Rechercher une application…" aria-label="Rechercher une application"></div>
+  <div class="grid" id="apps"><p class="note">Chargement…</p></div>
+  <p class="note">🔒 Chaque application garde ses données <b>dans le navigateur de cet appareil</b> : rien n'est envoyé ni publié. Ces applications sont <b>sans lien avec l'enseignement</b> et n'utilisent pas la liste des élèves de Mes Apps EPS.</p>
+ </div>
+ <div class="card eps"><img src="icons/mesappseps.png" alt="" width="56" height="56" onerror="this.remove()"><div><h2 style="margin:0 0 4px">🏫 Mes Apps EPS</h2><p>La boîte à outils numérique du prof d'EPS.</p></div><a class="btn b" id="eps" rel="noopener">↗ Ouvrir</a></div>
+</main>
+<footer class="foot">
+<div><a href="http://vinzneuron.free.fr/" target="_blank" rel="noopener noreferrer" aria-label="Site VinZ Neuron" title="VinZ Neuron"><img class="own" src="icons/vinzneuron.png" alt="Logo VinZ Neuron" width="96" height="96"></a></div>
+<div><a id="conf">Politique de confidentialité</a></div>
+<div><a class="ic" id="ct" aria-label="Contact" title="Contact"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg></a><a class="ic" href="http://vinzneuron.free.fr/" target="_blank" rel="noopener noreferrer" aria-label="Site web" title="Site web"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3.2 3 3.2 15 0 18M12 3c-3.2 3-3.2 15 0 18"/></svg></a><a class="ic" href="https://www.instagram.com/vinzneuron/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a><a class="ic" href="https://www.youtube.com/@vinz_neuron" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="5" width="20" height="14" rx="4.5"/><path d="M10 9.2v5.6l5-2.8z" fill="currentColor"/></svg></a></div>
+<p>VinZ Apps · Vincent TOCQUIN – « VinZ Neuron »</p>
+</footer>
+<p class="ver">Version <span id="ver"></span></p>
+<script src="version.js"></script>
+<script src="config.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+$('#ver').textContent=APP_VERSION;
+$('#eps').href=MES_APPS_EPS;$('#conf').href=MES_APPS_EPS+'confidentialite.html#s11';$('#ct').href=MES_APPS_EPS+'contact.html';
+// Même rendu de tuile que la zone « VinZ Apps » de Mes Apps EPS (champs id, nom, desc, url, icon, emoji, couleur ; categorie facultatif).
+const tc=a=>/^#[0-9a-f]{3,8}\s*,\s*#[0-9a-f]{3,8}$/i.test(a.couleur||'')?` style="--t1:${a.couleur.split(',')[0].trim()};--t2:${a.couleur.split(',')[1].trim()}"`:'';
+const safe=u=>/^https?:\/\//i.test(u||'')?u:'';
+function tile(a){const ic=a.icon?new URL(a.icon,location.href).href:'',u=safe(a.url&&new URL(a.url,location.href).href);
+ return `<a class="tile ${u?'':'off'}"${tc(a)} ${u?`href="${esc(u)}" target="_blank" rel="noopener"`:'aria-disabled="true"'} title="${esc(a.desc||'')}"><span class="ic">${ic?`<img src="${esc(ic)}" alt="" width="76" height="76" data-e="${esc(a.emoji||'🧩')}">`:esc(a.emoji||'🧩')}</span><b>${esc(a.nom)}</b>${a.desc?`<small>${esc(a.desc)}</small>`:''}</a>`}
+let APPS=[];
+function draw(){const q=$('#q').value.trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+ const n=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+ const L=APPS.filter(a=>!q||n(a.nom+' '+a.desc+' '+(a.categorie||'')).includes(q));
+ const cats=[...new Set(L.map(a=>a.categorie||''))],grp=cats.some(Boolean);
+ $('#apps').innerHTML=L.length?cats.map(c=>(grp?`<p class="fg">${esc(c||'Autres')}</p>`:'')+L.filter(a=>(a.categorie||'')===c).map(tile).join('')).join(''):`<p class="note">${APPS.length?'Aucune application ne correspond à la recherche.':'Aucune application pour le moment.'}</p>`;
+ // icône introuvable → emoji de secours
+ $('#apps').querySelectorAll('img[data-e]').forEach(im=>im.onerror=()=>im.replaceWith(document.createTextNode(im.dataset.e)))}
+fetch('apps.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()})
+ .then(A=>{APPS=(Array.isArray(A)?A:[]).filter(a=>a&&a.nom);APPS.sort((x,y)=>!safe(x.url)-!safe(y.url));draw()})
+ .catch(()=>{$('#apps').innerHTML='<p class="err">⚠ Catalogue indisponible (apps.json absent, mal formé ou hors connexion).</p>'});
+$('#q').oninput=draw;
+// Installation (Android / Chrome / Edge)
+let IP;addEventListener('beforeinstallprompt',e=>{e.preventDefault();IP=e;$('#inst').hidden=false});
+$('#inst').onclick=async()=>{if(!IP)return;IP.prompt();await IP.userChoice.catch(()=>{});IP=null;$('#inst').hidden=true};
+addEventListener('appinstalled',()=>$('#inst').hidden=true);
+if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');
+</script>
+</body></html>
